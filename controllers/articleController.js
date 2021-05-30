@@ -4,21 +4,19 @@ const Poll = require('../models/PollModel.js');
 
 const articleController = {
     getArticleList: function (req, res) {
-        res.render('article-list');
+        db.findMany(Article, {}, '', function(articles){
+            res.render('article-list', {articles : articles});
+        });
     },
 
     getArticlePost: function (req, res) {
-        var doc = {
-            title: "From the Past 'till Now: The Anti-Filipino Sentiment"
-        }
+        var doc = {title: req.params.title}
 
         db.findOne(Article, doc, '', function(article){
             db.findOne(Poll, doc, '', function(poll){
                 res.render('article-post', {article:article, poll:poll});
             });
         });
-
-        
     }
 }
 

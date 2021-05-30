@@ -95,8 +95,11 @@ const database = {
         });
     },
 
-    getObjectID : function () {
-        return mongoose.Types.ObjectId().toString();
+    findRecent: function(model, callback) {
+        model.find({}, '', {sort: {"_id": -1}, limit: 3}, function(error, result) {
+            if(error) return callback(false);
+            return callback(result);
+        }).lean();
     }
 }
 

@@ -18,9 +18,10 @@
     
     <div id="articles">
       <div id="article-list">
-        {{>post}}<hr class="line-light">
-        {{>post}}<hr class="line-light">
-        {{>post}}<hr class="line-light">
+        {{#each articles}}
+          {{>article}}
+          <hr class="line-light">
+        {{/each}}
       </div><br>
     </div><br>
 
