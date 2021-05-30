@@ -12,12 +12,12 @@ var PollSchema = new mongoose.Schema({
     },
 
     yesctr: {
-        type: [String],
+        type: Number,
         required: false
     },
 
     noctr: {
-        type: [String],
+        type: Number,
         required: false
     }
 });
