@@ -442,7 +442,7 @@ h2.subsubheader {
     text-indent: -20px;
 }
 
-#poll > div {
+#poll-question {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -458,6 +458,66 @@ h2.subsubheader {
     text-align: center;
     padding-left: 5%;
     padding-right: 5%;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#buttons > button {
+    width: 10%;
+    font-size: 2.5vh;
+}
+
+#nobtn {
+    margin-left: 20px;
+}
+
+#buttons p {
+    font-family: Lora;
+    font-size: 1.5vh;
+    font-weight: 300;
+}
+
+#poll-bars {
+    margin: 10px 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#poll-bars > div {
+    display: flex;
+    background-color: #E8E8E8;
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#poll-bars h6 {
+    font-family: Lora;
+    font-size: 1.5vh;
+    font-weight: 600;
+}
+
+#poll-bars span {
+    padding: 10px;
+    margin: 10px;
+    font-family: Lora;
+    color: white;
+    font-size: 1.5vh;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.yes {
+    background-color: #7B6363;
+}
+
+.no {
+    background-color: #7B6363; 
 }
 
 #comments {
