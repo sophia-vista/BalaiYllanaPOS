@@ -27,21 +27,31 @@
       {{#each article.content}}
         <p>{{this}}</p><br>
       {{/each}}
-    </div><br><hr class="line-light"><br>
+      <h3>References</h3>
+      {{#each article.references}}
+        <h5>{{this}}</h5>
+      {{/each}}
+    </div><br>
+  </div><br>
 
+  <div id="container">
     <div id="poll">
       <div>
-        <h2 class="subsubheader">Poll:</h2>
+        <h2 class="subsubheader">Poll</h2>
         <h3>{{poll.question}}</h3>
       </div>
-    </div><br><hr class="line-light"><br>
+    </div>
+  </div><br>
 
+  <div id="container">
     <div id="comments">
       <h2 class="subsubheader">Comments:</h2>
       <div id="comment-list">
+        {{> comment}}<hr class="line-light">
+        {{> comment}}<hr class="line-light">
+        {{> comment}}<hr class="line-light">
       </div>
     </div>
-
   </div>
   {{> footer}}
 </body>

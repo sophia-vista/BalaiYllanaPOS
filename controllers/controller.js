@@ -4,7 +4,7 @@ const Article = require('../models/ArticleModel.js');
 const controller = {
     getIndex: function (req, res) {
 
-        db.findMany(Article, {}, '', function(articles){
+        db.findRecent(Article, function(articles){
             var details = {articles : articles}
             res.render('index', details);
         });
