@@ -11,6 +11,7 @@ const articleController = {
 
     getArticlePost: function (req, res) {
         var doc = {title: req.params.title}
+        console.log(doc)
 
         db.findOne(Article, doc, '', function(article){
             db.findOne(Poll, doc, '', function(poll){
