@@ -22,4 +22,4 @@ var PollSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Article', ArticleSchema);
+module.exports = mongoose.model('Poll', PollSchema);
