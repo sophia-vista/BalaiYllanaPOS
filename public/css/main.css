@@ -459,3 +459,90 @@ h2.subsubheader {
     font-weight: 500;
     margin-left: 1%;
 }
+
+/***********************
+    
+    Login Elements &
+    Sign Up Elements 
+
+************************/
+#logintitle {
+    font-size: 10vh;
+    color: #593e3b;
+}
+
+#loginbutton {
+    border: 2px solid black;
+    color: white;
+    padding: 2px 24px;
+    cursor: pointer;                
+    width: 35%;
+    font-size: 3vh;
+    background-color: #c19a6b;
+    border-color: #c19a6b; 
+    border-radius: 12px;
+}
+
+#loginbutton:hover[type="submit"] {
+    border-color: #b38b6d;
+    background-color: #b38b6d;
+    color: white;
+}
+
+.logincontents {  
+    width:100%;
+    height: 72%;
+    background-color: white;
+    border: 4px solid;
+    border-color: #593e3b;
+    text-align: center;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#usernameError, #passwordError, #err {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;    
+    margin: 1%;
+    padding: 1%;
+    border-radius: 50px;
+    font-weight: bold;  
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2vh;
+    color: #a52a2a;
+}
+
+#login, #signup {
+    text-decoration: none;
+}
+
+#signup {
+    color: #c19a6b;
+}
+
+#signup:hover{
+    color:#b38b6d;
+}
+
+.accdets {
+    border: 3px solid;
+    color: #7d6464;
+    padding: 10px 28px;
+    cursor: pointer;                
+    width: 60%;
+    font-size: 17px;
+    background-color: #fff9dd;
+    border-color: #7d6464;
+    border-radius: 4px;
+}
+
+.accdets:hover, .accdets:focus {
+    border: 3px solid #593e3b;
+    border-radius: 4px;
+    background-color: #fff9dd;
+}   
