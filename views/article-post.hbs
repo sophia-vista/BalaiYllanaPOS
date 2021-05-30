@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> dysPHoria | {{title}} </title>
+  <title> dysPHoria | {{article.title}} </title>
 </head>
 <body>
   {{> header}}
@@ -10,21 +10,21 @@
     <ul class="breadcrumb">
       <li><a href="/">Home</a></li>
       <li><a href="/article/list">Articles</a></li>
-      <li>{{title}}</li>
+      <li>{{article.title}}</li>
     </ul> <br>
 
     <div id="main-post">
-      <h1 class="subheader">{{title}}</h1>
-      <h4>by {{author}}</h4>
+      <h1 class="subheader">{{article.title}}</h1>
+      <h4>by {{article.author}}</h4>
     </div><hr><br>
     
     <div id="body">
       <div id="img">
-        <img src="{{imgpath}}">
+        <img src="{{article.imgpath}}">
       </div>
-      <h4>{{imgsrc}}</h4><br>
+      <h4>{{article.imgsrc}}</h4><br>
       <p></p>
-      {{#each content}}
+      {{#each article.content}}
         <p>{{this}}</p><br>
       {{/each}}
     </div><br><hr class="line-light"><br>
@@ -32,7 +32,7 @@
     <div id="poll">
       <div>
         <h2 class="subsubheader">Poll:</h2>
-        <h3>Do you believe that it can be considered, generally, that Filipinos are uneducated?</h3>
+        <h3>{{poll.question}}</h3>
       </div>
     </div><br><hr class="line-light"><br>
 
