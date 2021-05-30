@@ -62,23 +62,30 @@ body {
 #header a, #header p {
     text-align: center;
     font-family: Merriweather;
+    font-size: 1.8vh;
     color: black;
     text-decoration: none;
 }
 
-#header a:hover {
+#right a:hover {
     background-color: #F6F6F6;
 }
 
-#navop {
+#left, #right {
     display: flex;
+    align-items: center;
 }
 
-#navop > a {
+#left > a {
+    padding-right: 20px;
+    margin-top: 2px;
+}
+
+#right > a {
     padding: 20px;
 }
 
-#navop > form {
+#right > form {
     margin: auto;
     margin-right: 10px;
 }
@@ -148,7 +155,7 @@ footer {
     background: linear-gradient(rgba(234,234,234,.95), rgba(234,234,234,.95)), url("/images/main-bg.png");
 }
 
-#aboutus {
+#aboutusbtn {
     padding: 20px;
     text-align: center;
     font-family: Merriweather;
@@ -157,7 +164,7 @@ footer {
     margin: auto;
 }
 
-#aboutus:hover {
+#aboutusbtn:hover {
     background-color: #F6F6F6;
 }
 
@@ -251,6 +258,23 @@ h2.subsubheader {
     border: none;
     height: 1px;
     margin-left: 2%;
+}
+
+.btn {
+    border: none;
+    cursor: pointer;
+    font-size: 2vh;
+    background-color: #7b6363;
+    border-radius: 15px;
+
+    padding: 10px 20px;
+    font-family: Merriweather;
+    color: white;
+    text-decoration: none;
+}
+
+.btn:hover[type="submit"] {
+    background-color: #624E4E;
 }
 
 /***********************
@@ -466,83 +490,112 @@ h2.subsubheader {
     Sign Up Elements 
 
 ************************/
-#logintitle {
+
+.logincontents, .signupcontents {  
+    border: 5px solid;
+    border-color: #593e3b;
+    border-radius: 4px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logincontents h1, .signupcontents h1 {
+    font-family: Lora;
     font-size: 10vh;
+    font-weight: 600;
     color: #593e3b;
 }
 
-#loginbutton {
-    border: 2px solid black;
-    color: white;
-    padding: 10px 24px;
-    cursor: pointer;                
-    width: 45%;
-    font-size: 3vh;
-    background-color: #c19a6b;
-    border-color: #c19a6b; 
-    border-radius: 12px;
-}
-
-#loginbutton:hover[type="submit"] {
-    border-color: #b38b6d;
-    background-color: #b38b6d;
-    color: white;
-}
-
-.logincontents {  
-    width:100%;
-    height: 72%;
-    background-color: white;
-    border: 4px solid;
-    border-color: #593e3b;
-    text-align: center;
-    border-radius: 4px;
-    align-items: center;
-    justify-content: center;
+#errors {
+    margin: 15px 0px;
     display: flex;
     flex-direction: column;
-}
-
-#usernameError, #passwordError, #err {
-    display: flex;
     justify-content: center;
     text-align: center;
-    width: 100%;    
-    margin: 1%;
-    padding: 1%;
-    border-radius: 50px;
+}
+
+.error {
+    font-family: 'Lora';
     font-weight: bold;  
-    font-family: 'Montserrat', sans-serif;
     font-size: 2vh;
     color: #a52a2a;
 }
 
-#login, #signup {
-    text-decoration: none;
+#loginlink, #signuplink {
+    font-family: 'Lora';
+    font-size: 1.8vh;
+    color: #593e3b;
 }
 
-#signup {
-    color: #c19a6b;
-}
-
-#signup:hover{
-    color:#b38b6d;
-}
-
-.accdets {
-    border: 3px solid;
-    color: #7d6464;
-    padding: 10px 28px;
-    cursor: pointer;                
-    width: 60%;
-    font-size: 17px;
-    background-color: #fff9dd;
-    border-color: #7d6464;
+.input {
+    padding: 4px 10px;
+    border: 3px solid #7d6464;
     border-radius: 4px;
+    color: #7d6464;
+    font-family: Lora;
+    font-size: 18px;
+    margin-bottom: 5px;
 }
 
-.accdets:hover, .accdets:focus {
+.input:hover, .input:focus {
     border: 3px solid #593e3b;
     border-radius: 4px;
-    background-color: #fff9dd;
-}   
+}
+
+/***********************
+    
+    About Us Elements 
+
+************************/
+
+#aboutus {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#aboutus p {
+    font-family: Merriweather;
+    font-size: 2vh;
+    font-weight: 300;
+    text-indent: 50px;
+    text-align: justify;
+}
+
+#group h2 {
+    text-align: center;
+}
+
+#group {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#members {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.member img {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid #7d6464;
+}
+
+.member h4 {
+    font-family: Lora;
+    font-size: 2vh;
+    font-weight: 300;
+    text-align: center;
+}
