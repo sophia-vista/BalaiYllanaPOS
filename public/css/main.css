@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+@font-face {
+  font-family: Chromate;
+  src: url(/fonts/Chromate-Regular.otf);
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -27,6 +32,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 html, body {
+    min-width: 850px;
 }
 
 body {
@@ -36,10 +42,14 @@ body {
     align-items: center;
 }
 
-/* Header */
+/********************* 
+    
+    Header/Navbar 
+
+*********************/
 
 #header {
-    width: 78%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -60,51 +70,184 @@ body {
     background-color: #F6F6F6;
 }
 
-#navop > a {
-    margin-left: 20px;
+#navop {
+    display: flex;
 }
 
-/* Index */
+#navop > a {
+    padding: 20px;
+}
 
+#navop > form {
+    margin: auto;
+    margin-right: 10px;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
+
+#search-bar {
+    width: 300px;
+    border-radius: 15px;
+    border: 2px #ddd solid;
+    padding: 5px 5px 5px 10px;
+    font-family: Lora;
+}
+
+#search-btn {
+    border: none;
+    background: none;
+    margin-left: -35px;
+}
+
+/****************** 
+    
+    Breadcrumbs 
+
+******************/
+
+ul.breadcrumb {
+    list-style: none;
+    padding-bottom: 10px;
+}
+
+ul.breadcrumb li {
+    display: inline;
+    font-family: 'Merriweather';
+    font-size: 1.5vh;
+}
+
+ul.breadcrumb li+li:before {
+    padding: 5px;
+    color: black;
+    content: ">";
+}
+
+ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+}
+
+ul.breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+}
+
+/************************
+    
+    Footer Elements 
+
+************************/
+
+footer {
+    display: flex;
+    background: linear-gradient(rgba(234,234,234,.95), rgba(234,234,234,.95)), url("/images/main-bg.png");
+}
+
+#aboutus {
+    padding: 20px;
+    text-align: center;
+    font-family: Merriweather;
+    color: black;
+    text-decoration: none;
+    margin: auto;
+}
+
+#aboutus:hover {
+    background-color: #F6F6F6;
+}
+
+/****************** 
+    
+    Containers 
+
+******************/
+
+/* main white bg container */
 #container {
     background-color: #FAFAFA;
-
     width: 80%;
     height: 100%;
     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.01), 0 8px 20px 0 rgba(0, 0, 0, 0.01);
     padding: 20px;
 }
 
+/* big heading in index */
 #main {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    text-align: center;
     height: 200px;
     background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)), url("/images/title-bg.jpg");
 }
 
+#main > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* smol heading */
+#main-small {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)), url("/images/title-bg.jpg");
+}
+
+/* heading for articles/quizzes  */
+#main-post {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*********************** 
+    
+    General Elements 
+
+***********************/
+
 #title {
     font-family: Lora;
-    color: #111111;
+    color: #593e3b;
     text-decoration: none;
     font-size: 8vh;
     font-weight: 700;
+    margin-left: 20px;
 }
 
-#articles, #quizzes {
-    display: flex;
-    flex-direction: column;
-    padding-left: 40px;
-    padding-right: 40px;
+#caption {
+    font-family: Lora;
+    color: #593e3b;
+    text-decoration: none;
+    font-size: 1.75vh;
+    font-style: italic;
+    font-weight: 300;
+    margin-left: 53px;
+    margin-top: -19px;
 }
 
-#articles a, #quizzes a {
+h1.subheader {
+    font-family: Merriweather;
+    font-size: 5vh;
+    font-style: italic;
+    font-weight: 700;
     color: black;
     text-decoration: none;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
-.subheader {
+h2.subheader {
     font-family: Merriweather;
     font-size: 4vh;
     font-style: italic;
@@ -113,19 +256,66 @@ body {
     text-decoration: none;
 }
 
-.seeall {
-    font-family: Merriweather;
-    font-size: 2vh;
-    font-weight: 300;
-    text-align: right;
-}
-
 .line-light {
     background-color: #C9C9C9;
     color: #C9C9C9;
     border: none;
     height: 1px;
-    margin-left: 30px;
+    margin-left: 2%;
+}
+
+/***********************
+    
+    Index Elements 
+
+***********************/
+
+.seeall {
+    font-family: Merriweather;
+    font-size: 2vh;
+    font-weight: 300;
+    text-align: right;
+    text-decoration: underline;
+    color: black;
+}
+
+.seeall:hover {
+    color: #777777;
+}
+
+/***********************
+    
+    List Elements 
+
+************************/
+
+#articles, #quizzes {
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+#article-list a, #quiz-list a {
+    color: black;
+    text-decoration: none;
+}
+
+.post {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    margin-left: 0.5%;
+}
+
+.post:hover {
+    background-color: #E8E8E8;
+    transition: all 0.5s;
+}
+
+.post > div {
+    padding: 5px;
+    margin-left: 20px;
 }
 
 .post-title {
@@ -140,12 +330,68 @@ body {
     font-weight: 300;
 }
 
-.article > div {
-    padding: 20px;
-    margin-left: 30px;
+.post-img {
+    width: 200px;
 }
 
-.article > div:hover {
-    background-color: #E8E8E8;
-    transition: all 0.5s;
+/***********************
+    
+    Article Elements 
+
+************************/
+
+#main-post h4 {
+    font-family: Merriweather;
+    font-size: 1.7vh;
+    font-style: italic;
+    font-weight: 300;
+    margin-right: 5%;
+    text-align: right;
+}
+
+#body {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#img > img {
+    width: 500px;
+}
+
+#body p {
+    font-family: Merriweather;
+    font-size: 2vh;
+    font-weight: 300;
+    text-indent: 50px;
+    text-align: justify;
+}
+
+#body h6 {
+    font-family: Merriweather;
+    font-size: 1.5vh;
+    font-style: italic;
+    font-weight: 300;
+    text-indent: 50px;
+    text-align: center;
+}
+
+#body h4 {
+    font-family: Merriweather;
+    font-size: 1.4vh;
+    font-style: italic;
+    font-weight: 300;
+    text-align: center;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+#poll h2 {
+    padding-left: 5%;
+    padding-right: 5%;
 }
