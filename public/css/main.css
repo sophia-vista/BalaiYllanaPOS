@@ -263,7 +263,7 @@ h2.subsubheader {
     font-family: Lora;
     color: #593e3b;
     text-decoration: none;
-    font-size: 8vh;
+    font-size: 72px;
     font-weight: 700;
     margin-left: 20px;
 }
@@ -272,7 +272,7 @@ h2.subsubheader {
     font-family: Lora;
     color: #593e3b;
     text-decoration: none;
-    font-size: 1.75vh;
+    font-size: 16px;
     font-style: italic;
     font-weight: 300;
     margin-left: 95px;
