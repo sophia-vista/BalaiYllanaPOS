@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const url = 'mongodb+srv://admin:blueprint@blueprint.gykvx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const url = 'mongodb+srv://admin1:admin@cluster0.barb2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 const options = {
     useUnifiedTopology: true,
