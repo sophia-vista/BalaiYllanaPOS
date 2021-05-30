@@ -29,6 +29,9 @@ app.post('/signup', validation.signupValidation(), signupController.postSignUp);
 // articles
 app.get('/article/list', articleController.getArticleList);
 app.get('/article/:title', articleController.getArticlePost);
+app.get('/article/poll/yes', articleController.incrementYesPoll);
+app.get('/article/poll/no', articleController.incrementNoPoll);
+app.get('/checkPollAnswered', articleController.checkPollAnswered);
 
 // quizzes
 app.get('/quiz/list', quizController.getQuizList);
