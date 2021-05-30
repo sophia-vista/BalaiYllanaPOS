@@ -9,7 +9,7 @@ const quizController = require('../controllers/quizController.js');
 // const profileController = require('../controllers/profileController.js');
 // const errorController = require('../controllers/errorController.js');
 
-//const validation = require('../helpers/validation.js');
+const validation = require('../helpers/validation.js');
 
 const app = express();
 

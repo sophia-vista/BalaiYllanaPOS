@@ -474,9 +474,9 @@ h2.subsubheader {
 #loginbutton {
     border: 2px solid black;
     color: white;
-    padding: 2px 24px;
+    padding: 10px 24px;
     cursor: pointer;                
-    width: 35%;
+    width: 45%;
     font-size: 3vh;
     background-color: #c19a6b;
     border-color: #c19a6b; 

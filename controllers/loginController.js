@@ -1,4 +1,4 @@
-//const { validationResult } = require('express-validator');
+const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const db = require('../models/db.js');
 const User = require('../models/UserModel.js');
@@ -30,7 +30,7 @@ const loginController = {
                     bcrypt.compare(password, result.password, function(err, equal) {
                         if(equal) {
                             req.session.username = result.username;
-                            res.redirect('/home');
+                            res.redirect('/');
                         }
 
                         else {

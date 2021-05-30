@@ -27,7 +27,7 @@ const validation = {
 		return validation;
 	},
 
-    loginValid: function () {
+    loginValidation: function () {
         var validation = [
             check('username', 'Please input your username.').notEmpty(),
             check('password', 'Please input your password.').notEmpty()          
