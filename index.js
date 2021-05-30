@@ -15,41 +15,16 @@ port = process.env.PORT;
 hostname = process.env.HOSTNAME;
 
 app.use(session({
-    secret: 'blueprint',
+    secret: 'gerphis',
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({ mongoUrl: 
-        'mongodb+srv://admin:blueprint@blueprint.gykvx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' })
+        'mongodb+srv://admin1:admin@cluster0.barb2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' })
 }));
 
 app.engine('hbs', exphbs({
-    defaultLayout: '',
+    defaultLayout: 'main',
     extname: '.hbs',
-    helpers: {
-    	ifEqual : function (user1, user2, opts) {
-            try
-            {
-              if (user1.toLowerCase () == user2.toLowerCase ())
-                return opts.fn (this);
-              else
-                return opts.inverse(this);
-            } catch (error) { }
-        },
-        dateFormat : function (date) {
-            var date = date.toString ().split (" ");
-            var year = date [3];
-            var month = date [1];
-            var day = date [2];
-
-            return (month + " " + day + ", " + year);
-        },
-        getDay : function (date) {
-            var date = date.toString ().split (" ");
-            var day = date [2];
-
-            return day;
-        }
-    }
 }));
 
 
