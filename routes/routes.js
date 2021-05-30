@@ -28,7 +28,7 @@ app.get('/about-us', controller.getAboutUs);
 
 // articles
 app.get('/article/list', articleController.getArticleList);
-app.get('/article/post', articleController.getArticlePost);
+app.get('/article/:title', articleController.getArticlePost);
 
 // quizzes
 app.get('/quiz/list', quizController.getQuizList);

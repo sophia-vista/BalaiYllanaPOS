@@ -215,26 +215,6 @@ footer {
 
 ***********************/
 
-#title {
-    font-family: Lora;
-    color: #593e3b;
-    text-decoration: none;
-    font-size: 8vh;
-    font-weight: 700;
-    margin-left: 20px;
-}
-
-#caption {
-    font-family: Lora;
-    color: #593e3b;
-    text-decoration: none;
-    font-size: 1.75vh;
-    font-style: italic;
-    font-weight: 300;
-    margin-left: 53px;
-    margin-top: -19px;
-}
-
 h1.subheader {
     font-family: Merriweather;
     font-size: 5vh;
@@ -256,6 +236,15 @@ h2.subheader {
     text-decoration: none;
 }
 
+h2.subsubheader {
+    font-family: Merriweather;
+    font-size: 3vh;
+    font-style: italic;
+    font-weight: 700;
+    color: black;
+    text-decoration: none;
+}
+
 .line-light {
     background-color: #C9C9C9;
     color: #C9C9C9;
@@ -269,6 +258,26 @@ h2.subheader {
     Index Elements 
 
 ***********************/
+
+#title {
+    font-family: Lora;
+    color: #593e3b;
+    text-decoration: none;
+    font-size: 8vh;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+#caption {
+    font-family: Lora;
+    color: #593e3b;
+    text-decoration: none;
+    font-size: 1.75vh;
+    font-style: italic;
+    font-weight: 300;
+    margin-left: 95px;
+    margin-top: -20px;
+}
 
 .seeall {
     font-family: Merriweather;
@@ -391,7 +400,25 @@ h2.subheader {
     padding-right: 15%;
 }
 
-#poll h2 {
+#poll > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#poll h3 {
+    font-family: Merriweather;
+    font-size: 3vh;
+    font-style: italic;
+    font-weight: 300;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#comments {
     padding-left: 5%;
     padding-right: 5%;
 }

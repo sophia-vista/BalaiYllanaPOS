@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> phDiaspora | Home </title>
+  <title> dysPHoria | Home </title>
 </head>
 <body>
   {{> header}}
@@ -10,17 +10,18 @@
     <div id="main">
       <a href="/"><img src="/images/logo.png" height="150px"></a>
       <div>
-        <a href="/" id="title">phDiaspora</a>
-        <a href="/" id="caption">For Filipinos, For the Future</a>
+        <a href="/" id="title">dysPHoria</a>
+        <a href="/" id="caption">Fighting against discrimination, one article at a time.</a>
       </div>
     </div><hr><br>
     
     <div id="articles">
       <h2 class="subheader">Latest Articles</h2>
       <div id="article-list">
-        {{>post}}<hr class="line-light">
-        {{>post}}<hr class="line-light">
-        {{>post}}<hr class="line-light">
+        {{#each articles}}
+          {{>article}}
+          <hr class="line-light">
+        {{/each}}
       </div><br>
       <a href="/article/list" class="seeall">See All Articles</a>
     </div><br>
@@ -28,9 +29,10 @@
     <div id="quizzes">
       <h2 class="subheader">Latest Quizzes</h2>
       <div id="quiz-list">
-        {{>post}} <hr class="line-light">
-        {{>post}} <hr class="line-light">
-        {{>post}} <hr class="line-light">
+        {{#each quiz}}
+          {{>quiz}}
+          <hr class="line-light">
+        {{/each}}
       </div><br>
       <a href="/quiz/list" class="seeall">See All Quizzes</a>
     </div><br>
