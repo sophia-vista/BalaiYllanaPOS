@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> phDiaspora | {{title}} </title>
+</head>
+<body>
+  {{> header}}
+  <div id="container">
+
+    <ul class="breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li><a href="/article/list">Articles</a></li>
+      <li>{{title}}</li>
+    </ul> <br>
+
+    <div id="main-post">
+      <h1 class="subheader">{{title}}</h1>
+      <h4>by {{author}}</h4>
+    </div><hr><br>
+    
+    <div id="body">
+      <div id="img">
+        <img src="{{imgpath}}">
+      </div>
+      <h4>{{imgsrc}}</h4><br>
+      <p></p>
+      {{#each content}}
+        <p>{{this}}</p><br>
+      {{/each}}
+    </div><br><hr class="line-light">
+
+    <div id="poll">
+      <h2 class="subheader">Poll</h2>
+      <h3></h3>
+    </div><br><hr class="line-light">
+
+    <div id="comments">
+    </div>
+
+  </div>
+  {{> footer}}
+</body>
+</html>
