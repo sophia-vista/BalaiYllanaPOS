@@ -9,22 +9,22 @@ const loginController = {
     },
 
     postLogin: function (req, res) {
-        //var errors = validationResult(req);
+        var errors = validationResult(req);
         var username = req.body.username;
         var password = req.body.password;
 
-        // if (!errors.isEmpty()) {
-        //     errors = errors.errors;
+        if (!errors.isEmpty()) {
+            errors = errors.errors;
 
-        //     var details = {};
+            var details = {};
 
-        //     for(i = 0; i < errors.length; i++)
-        //         details[errors[i].param + 'Error'] = errors[i].msg;
+            for(i = 0; i < errors.length; i++)
+                details[errors[i].param + 'Error'] = errors[i].msg;
 
-        //     res.render('login', details);
-        // }
+            res.render('login', details);
+        }
 
-        // else {
+        else {
             db.findOne(User, {username: username}, '', function (result) {
                 if(result) {
                     bcrypt.compare(password, result.password, function(err, equal) {
@@ -53,7 +53,7 @@ const loginController = {
                     res.render('login', details);
                 }
             });
-        // }  
+        }  
     }
 }
 

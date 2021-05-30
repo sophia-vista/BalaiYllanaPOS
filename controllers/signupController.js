@@ -10,20 +10,20 @@ const signupController = {
     },
 
     postSignUp: function (req, res) {
-        // var errors = validationResult(req);
+        var errors = validationResult(req);
 
-        // if (!errors.isEmpty()) {
-        //     errors = errors.errors;
+        if (!errors.isEmpty()) {
+            errors = errors.errors;
 
-        //     var details = {};
+            var details = {};
 
-        //     for(i = 0; i < errors.length; i++)
-        //         details[errors[i].param + 'Error'] = errors[i].msg;
+            for(i = 0; i < errors.length; i++)
+                details[errors[i].param + 'Error'] = errors[i].msg;
             
-        //     res.render('signup', details);
-        // }
+            res.render('signup', details);
+        }
 
-        // else {
+        else {
             var username = req.body.username;
             var password = req.body.password;
             var email = req.body.email;           
@@ -42,7 +42,7 @@ const signupController = {
                     }
                 });
             });
-        // }
+        }
     },
 
     getCheckUsername: function (req, res) {
