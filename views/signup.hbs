@@ -1,6 +1,7 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title> dysPHoria | Log In </title>
+  <title> dysPHoria | Sign Up </title>
 
 </head>
 <body id="login-body">
@@ -8,18 +9,20 @@
   <div id="container">
     <div class="logincontents">
       <br><br>
-      <h1 id="logintitle"> Log in </h1>
+      <h1 id="logintitle"> Sign Up </h1>
         <p id = "err">{{error}}</p>
       <form class="form" method="post">
         <input class="accdets" type="text" placeholder="Username" id="username" name="username">
         <p id="usernameError" class = "error">{{usernameError}}</p>  
         <input class="accdets" type="password" placeholder="Password" id="password" name="password">
         <p id="passwordError" class = "error">{{passwordError}}</p>
+        <input class="accdets" type="email" placeholder="Email" id="email" name="email">
+        <p id="emailError" class = "error">{{emailError}}</p>        
         <br>
-      <input type="submit" value="Log In" class = "btn" id="loginbutton" name = "loginbutton">
+      <input type="submit" value="Sign Up" class = "btn" id="loginbutton" name ="loginbutton">
       </form>
       <br>
-      <a id="signup" href="/signup">Sign Up for dysPHoria</a>
+      <a id="signup" href="/login">Log in to existing account</a>
       <br>     
     </div>    
   </div>

@@ -2,7 +2,7 @@ const { check } = require('express-validator');
 
 const validation = {
 
-	signUpValidation : function () {
+	signupValidation : function () {
 		var validation = [
 			check ('username', 'Invalid username. Minimum of 4 characters and maximum of 20 characters.')
 			.isLength ({min: 4, max: 20}).custom((value,{req, loc, path}) => {
@@ -27,7 +27,7 @@ const validation = {
 		return validation;
 	},
 
-    logInValid: function () {
+    loginValidation: function () {
         var validation = [
             check('username', 'Please input your username.').notEmpty(),
             check('password', 'Please input your password.').notEmpty()          
