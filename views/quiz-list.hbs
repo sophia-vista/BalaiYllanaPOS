@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> phDiaspora | Quizzes </title>
+</head>
+<body>
+  {{> header}}
+  <div id="container">
+
+    <ul class="breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li>Quizzes</li>
+    </ul> 
+
+    <div id="main-small">
+      <h1 class="subheader">List of Quizzes</h1>
+    </div><hr><br>
+
+    <div id="quizzes">
+      <div id="quiz-list">
+        {{>post}}<hr class="line-light">
+        {{>post}}<hr class="line-light">
+        {{>post}}<hr class="line-light">
+      </div><br>
+    </div><br>
+
+  </div>
+  {{> footer}}
+</body>
+</html>
