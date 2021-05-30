@@ -2,6 +2,7 @@
 <html>
 <head>
   <title> dysPHoria | {{article.title}} </title>
+  <script src="/js/article-post.js" type="text/javascript"></script>
 </head>
 <body>
   {{> header}}
@@ -14,7 +15,7 @@
     </ul> <br>
 
     <div id="main-post">
-      <h1 class="subheader">{{article.title}}</h1>
+      <h1 class="subheader" id="article-title">{{article.title}}</h1>
       <h4>by {{article.author}}</h4>
     </div><hr><br>
     
@@ -36,9 +37,25 @@
 
   <div id="container">
     <div id="poll">
-      <div>
-        <h2 class="subsubheader">Poll</h2>
-        <h3>{{poll.question}}</h3>
+      <h3>POLL: {{poll.question}}</h3><br><hr class="line-light"><br>
+      
+      <div id="buttons">
+        {{#if notloggedin}}
+          <p>{{notloggedin}}</p>
+        {{else if answered}}
+          <p>{{answered}}</p>
+        {{else}}
+          <button class="btn" type="submit" id="yesbtn" name="yesbtn">Yes</button>
+          <button class="btn" type="submit" id="nobtn" name="nobtn">No</button>
+        {{/if}}
+      </div><br><hr class="line-light">
+
+      <div id="poll-bars">
+        <h3>Results</h3>
+        <div>
+          <span class="yes" style="width: {{yespercent}}%">Yes - {{yespercent}}%</span>
+          <span class="no" style="width: {{nopercent}}%">No - {{nopercent}}%</span>
+        </div>
       </div>
     </div>
   </div><br>
