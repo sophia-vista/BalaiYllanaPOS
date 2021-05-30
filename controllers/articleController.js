@@ -12,11 +12,13 @@ const articleController = {
             title: "From the Past 'till Now: The Anti-Filipino Sentiment"
         }
 
-        db.findOne(Article, doc, '', function(result){
-            db.findOne(Poll, doc, '', function(result){
-                res.render('article-post', result);
-            })
-        })
+        db.findOne(Article, doc, '', function(article){
+            db.findOne(Poll, doc, '', function(poll){
+                res.render('article-post', {article:article, poll:poll});
+            });
+        });
+
+        
     }
 }
 
