@@ -19,18 +19,20 @@ const articleController = {
                 details.poll = poll;
                 details.username = req.session.username;
 
+                // calculates percentage of votes
                 var total = poll.yesctr + poll.noctr;
                 var yespercent = poll.yesctr / total * 100;
                 var nopercent = poll.noctr / total * 100;
-                details.yespercent = yespercent.toFixed(2);;
-                details.nopercent = nopercent.toFixed(2);;
+                details.polltotal = total;
+                details.yespercent = yespercent.toFixed(2);
+                details.nopercent = nopercent.toFixed(2);
+
                 if (!req.session.username)
                     details.notloggedin = 'Log in to answer the poll.';
 
                 db.findOne(User, {username: req.session.username}, '', function(user){
                     if (user && user.polls.includes(req.params.title))
-                        details.answered = 'You have already answered this poll.';
-                    console.log(details)
+                        details.answered = 'You have already answered this poll. Comment your thoughts down below!';
                     res.render('article-post', details);
                 });
             });
