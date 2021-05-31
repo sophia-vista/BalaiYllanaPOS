@@ -5,8 +5,8 @@ var QuizSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    
-    author : {
+
+    intro: {
         type: String,
         required: true
     },
@@ -17,7 +17,12 @@ var QuizSchema = new mongoose.Schema({
     },
 
     answers: {
-        type: [String],
+        type: [Boolean],
+        required: false
+    },
+
+    explanations: {
+        type: [Boolean],
         required: false
     }
 });
