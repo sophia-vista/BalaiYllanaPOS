@@ -18,7 +18,10 @@
 
     <div id="quizzes">
       <div id="quiz-list">
-        {{>quiz}}<hr class="line-light">
+        {{#each quizzes}}
+          {{>quiz}}
+          <hr class="line-light">
+        {{/each}}
       </div><br>
     </div><br>
 
