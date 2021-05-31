@@ -28,7 +28,7 @@ const articleController = {
                 details.nopercent = nopercent.toFixed(2);
 
                 if (!req.session.username)
-                    details.notloggedin = 'Log in to answer the poll.';
+                    details.notloggedin = 'Sign up or log in to answer the poll!';
 
                 db.findOne(User, {username: req.session.username}, '', function(user){
                     if (user && user.polls.includes(req.params.title))
