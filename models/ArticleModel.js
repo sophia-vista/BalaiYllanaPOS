@@ -11,6 +11,11 @@ var ArticleSchema = new mongoose.Schema({
         required: true
     },
 
+    intro : {
+        type: String,
+        required: true
+    },
+
     content: {
         type: [String],
         required: false
