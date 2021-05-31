@@ -35,6 +35,7 @@ app.get('/checkPollAnswered', articleController.checkPollAnswered);
 
 // quizzes
 app.get('/quiz/list', quizController.getQuizList);
+app.get('/quiz/:title', quizController.getQuizPost);
 
 // //search
 // app.get('/search', controller.getSearch);
