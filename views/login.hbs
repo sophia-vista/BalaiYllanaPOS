@@ -1,26 +1,34 @@
 <html>
 <head>
   <title> dysPHoria | Log In </title>
-
 </head>
-<body id="login-body">
+<body>
   {{> header}}
   <div id="container">
+
+    <ul class="breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li>Log In</li>
+    </ul>
+
     <div class="logincontents">
-      <br><br>
-      <h1 id="logintitle"> Log in </h1>
-        <p id = "err">{{error}}</p>
-      <form class="form" method="post">
-        <input class="accdets" type="text" placeholder="Username" id="username" name="username">
-        <p id="usernameError" class = "error">{{usernameError}}</p>  
-        <input class="accdets" type="password" placeholder="Password" id="password" name="password">
-        <p id="passwordError" class = "error">{{passwordError}}</p>
-        <br>
-      <input type="submit" value="Log In" class = "btn" id="loginbutton" name = "loginbutton">
-      </form>
       <br>
-      <a id="signup" href="/signup">Sign Up for dysPHoria</a>
-      <br>     
+      <h1>Log In</h1>
+
+      <div id="errors">
+        <p id="error" class="error">{{error}}</p>
+        <p id="usernameError" class = "error">{{usernameError}}</p> 
+        <p id="passwordError" class = "error">{{passwordError}}</p>
+      </div>
+
+      <form class="form" method="post">
+        <input class="input" type="text" placeholder="Username" id="username" name="username"><br>
+        <input class="input" type="password" placeholder="Password" id="password" name="password"><br><br>
+        <input class="btn" type="submit" value="Log In" id="loginbutton" name="loginbutton">
+      </form><br>
+
+      <a id="signuplink" href="/signup">No account? Sign Up for dysPHoria!</a><br> 
+          
     </div>    
   </div>
 </body>

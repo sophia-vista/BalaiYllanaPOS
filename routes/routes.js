@@ -3,7 +3,7 @@ const express = require('express');
 const controller = require('../controllers/controller.js');
 const signupController = require('../controllers/signupController.js');
 const loginController = require('../controllers/loginController.js');
-// const logoutController = require('../controllers/logoutController.js');
+const logoutController = require('../controllers/logoutController.js');
 const articleController = require('../controllers/articleController.js');
 const quizController = require('../controllers/quizController.js');
 // const profileController = require('../controllers/profileController.js');
@@ -20,7 +20,7 @@ app.get('/about-us', controller.getAboutUs);
 // // login + signup
 app.get('/login', loginController.getLogin);
 app.post('/login', validation.loginValidation(), loginController.postLogin);
-// app.get('/logout', logoutController.getLogout);
+app.get('/logout', logoutController.getLogout);
 app.get('/signup', signupController.getSignUp);
 app.post('/signup', validation.signupValidation(), signupController.postSignUp);
 // app.get('/getCheckUsername', signupController.getCheckUsername);
@@ -29,9 +29,13 @@ app.post('/signup', validation.signupValidation(), signupController.postSignUp);
 // articles
 app.get('/article/list', articleController.getArticleList);
 app.get('/article/:title', articleController.getArticlePost);
+app.get('/article/poll/yes', articleController.incrementYesPoll);
+app.get('/article/poll/no', articleController.incrementNoPoll);
+app.get('/checkPollAnswered', articleController.checkPollAnswered);
 
 // quizzes
 app.get('/quiz/list', quizController.getQuizList);
+app.get('/quiz/:title', quizController.getQuizPost);
 
 // //search
 // app.get('/search', controller.getSearch);

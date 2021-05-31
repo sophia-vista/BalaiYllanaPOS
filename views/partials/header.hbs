@@ -1,13 +1,21 @@
 <nav id="header">
-    <p id="date"></p>
-    <div id="navop">
+    <div id="left">
+        <a href="/"><img src="/images/logo.png" height="30px"></a>
+        <p id="date"></p>
+    </div>
+    <div id="right">
         <form action="/search" method="get">
             <input type="search" placeholder = "Search for articles or quizzes..." name = "search" value = "" id="search-bar"/>
             <button type="submit" id="search-btn">
                 <i class="fas fa-search"></i>
             </button>
         </form>
-        <a href="/login">Log In</a>
-        <a href="/signup">Sign Up</a>
+        {{#if username}}
+            <a href="/profile">{{username}}</a>
+            <a href="/logout">Log Out</a>
+        {{else}}
+            <a href="/login">Log In</a>
+            <a href="/signup">Sign Up</a>
+        {{/if}}
     </div>
 </nav>

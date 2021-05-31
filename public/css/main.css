@@ -62,23 +62,30 @@ body {
 #header a, #header p {
     text-align: center;
     font-family: Merriweather;
-    color: black;
+    font-size: 1.8vh;
+    color: #593e3b;
     text-decoration: none;
 }
 
-#header a:hover {
+#right a:hover {
     background-color: #F6F6F6;
 }
 
-#navop {
+#left, #right {
     display: flex;
+    align-items: center;
 }
 
-#navop > a {
+#left > a {
+    padding-right: 20px;
+    margin-top: 2px;
+}
+
+#right > a {
     padding: 20px;
 }
 
-#navop > form {
+#right > form {
     margin: auto;
     margin-right: 10px;
 }
@@ -148,7 +155,7 @@ footer {
     background: linear-gradient(rgba(234,234,234,.95), rgba(234,234,234,.95)), url("/images/main-bg.png");
 }
 
-#aboutus {
+#aboutusbtn {
     padding: 20px;
     text-align: center;
     font-family: Merriweather;
@@ -157,7 +164,7 @@ footer {
     margin: auto;
 }
 
-#aboutus:hover {
+#aboutusbtn:hover {
     background-color: #F6F6F6;
 }
 
@@ -253,6 +260,23 @@ h2.subsubheader {
     margin-left: 2%;
 }
 
+.btn {
+    border: none;
+    cursor: pointer;
+    font-size: 2vh;
+    background-color: #7b6363;
+    border-radius: 15px;
+
+    padding: 10px 20px;
+    font-family: Merriweather;
+    color: white;
+    text-decoration: none;
+}
+
+.btn:hover[type="submit"] {
+    background-color: #624E4E;
+}
+
 /***********************
     
     Index Elements 
@@ -343,11 +367,11 @@ h2.subsubheader {
     width: 200px;
 }
 
-/***********************
+/*********************************
     
-    Article Elements 
+    Article and Quiz Elements 
 
-************************/
+**********************************/
 
 #main-post h4 {
     font-family: Merriweather;
@@ -358,10 +382,57 @@ h2.subsubheader {
     text-align: right;
 }
 
-#body {
+.body {
     padding-left: 5%;
     padding-right: 5%;
 }
+
+/* article text */
+.body p {
+    font-family: Merriweather;
+    font-size: 2vh;
+    font-weight: 300;
+    text-indent: 50px;
+    text-align: justify;
+}
+
+/* reference header */
+.body h3 {
+    font-family: Merriweather;
+    font-size: 1.7vh;
+    font-style: italic;
+    font-weight: 300;
+    text-align: left;
+}
+
+/* image reference */
+.body h4 {
+    font-family: Merriweather;
+    font-size: 1.4vh;
+    font-style: italic;
+    font-weight: 300;
+    text-align: center;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+/* reference text */
+.body h5 {
+    font-family: Merriweather;
+    font-size: 1.2vh;
+    font-style: italic;
+    font-weight: 300;
+    text-align: left;
+    margin-left: 20px;
+    text-indent: -20px;
+}
+
+
+/***********************
+    
+    Article Elements 
+
+************************/
 
 #img {
     display: flex;
@@ -373,52 +444,7 @@ h2.subsubheader {
     width: 500px;
 }
 
-#body p {
-    font-family: Merriweather;
-    font-size: 2vh;
-    font-weight: 300;
-    text-indent: 50px;
-    text-align: justify;
-}
-
-#body h6 {
-    font-family: Merriweather;
-    font-size: 1.5vh;
-    font-style: italic;
-    font-weight: 300;
-    text-indent: 50px;
-    text-align: center;
-}
-
-#body h4 {
-    font-family: Merriweather;
-    font-size: 1.4vh;
-    font-style: italic;
-    font-weight: 300;
-    text-align: center;
-    padding-left: 15%;
-    padding-right: 15%;
-}
-
-#body h3 {
-    font-family: Merriweather;
-    font-size: 1.7vh;
-    font-style: italic;
-    font-weight: 300;
-    text-align: left;
-}
-
-#body h5 {
-    font-family: Merriweather;
-    font-size: 1.2vh;
-    font-style: italic;
-    font-weight: 300;
-    text-align: left;
-    margin-left: 20px;
-    text-indent: -20px;
-}
-
-#poll > div {
+#poll-question {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -434,6 +460,76 @@ h2.subsubheader {
     text-align: center;
     padding-left: 5%;
     padding-right: 5%;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#buttons p {
+    font-family: Lora;
+    font-size: 1.5vh;
+    font-weight: 300;
+}
+
+#buttons > button {
+    width: 10%;
+    font-size: 2.5vh;
+}
+
+#nobtn {
+    margin-left: 20px;
+}
+
+#poll-bars {
+    margin: 10px 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#poll-bars > div {
+    display: flex;
+    background-color: #E8E8E8;
+    border-radius: 15px;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#poll-bars h4 {
+    margin-top: 10px;
+    font-family: Merriweather;
+    font-size: 1.4vh;
+    font-style: italic;
+    font-weight: 300;
+    text-align: center;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+#poll-bars span {
+    padding: 10px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    /*max-width: 95%;*/
+    font-family: Lora;
+    color: white;
+    font-size: 1.5vh;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.yes {
+    background-color: #7B6363;
+    margin-bottom: 10px;
+}
+
+.no {
+    background-color: #7B6363; 
 }
 
 #comments {
@@ -462,87 +558,173 @@ h2.subsubheader {
 
 /***********************
     
+    Article Elements 
+
+************************/
+
+.quiz-item {
+    display: flex;
+    justify-content: center;
+}
+
+#quiz-body p {
+    text-indent: 0px;
+}
+
+.false {
+    margin-left: 20px;
+}
+
+
+/***********************
+    
     Login Elements &
     Sign Up Elements 
 
 ************************/
-#logintitle {
+
+.logincontents, .signupcontents {  
+    border: 5px solid;
+    border-color: #593e3b;
+    border-radius: 4px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logincontents h1, .signupcontents h1 {
+    font-family: Lora;
     font-size: 10vh;
+    font-weight: 600;
     color: #593e3b;
 }
 
-#loginbutton {
-    border: 2px solid black;
-    color: white;
-    padding: 10px 24px;
-    cursor: pointer;                
-    width: 45%;
-    font-size: 3vh;
-    background-color: #c19a6b;
-    border-color: #c19a6b; 
-    border-radius: 12px;
-}
-
-#loginbutton:hover[type="submit"] {
-    border-color: #b38b6d;
-    background-color: #b38b6d;
-    color: white;
-}
-
-.logincontents {  
-    width:100%;
-    height: 72%;
-    background-color: white;
-    border: 4px solid;
-    border-color: #593e3b;
-    text-align: center;
-    border-radius: 4px;
-    align-items: center;
-    justify-content: center;
+#errors {
+    margin: 15px 0px;
     display: flex;
     flex-direction: column;
-}
-
-#usernameError, #passwordError, #err {
-    display: flex;
     justify-content: center;
     text-align: center;
-    width: 100%;    
-    margin: 1%;
-    padding: 1%;
-    border-radius: 50px;
+}
+
+.error {
+    font-family: 'Lora';
     font-weight: bold;  
-    font-family: 'Montserrat', sans-serif;
     font-size: 2vh;
     color: #a52a2a;
 }
 
-#login, #signup {
-    text-decoration: none;
+#loginlink, #signuplink {
+    font-family: 'Lora';
+    font-size: 1.8vh;
+    color: #593e3b;
 }
 
-#signup {
-    color: #c19a6b;
-}
-
-#signup:hover{
-    color:#b38b6d;
-}
-
-.accdets {
-    border: 3px solid;
-    color: #7d6464;
-    padding: 10px 28px;
-    cursor: pointer;                
-    width: 60%;
-    font-size: 17px;
-    background-color: #fff9dd;
-    border-color: #7d6464;
+.input {
+    padding: 4px 10px;
+    border: 3px solid #7d6464;
     border-radius: 4px;
+    color: #7d6464;
+    font-family: Lora;
+    font-size: 18px;
+    margin-bottom: 5px;
 }
 
-.accdets:hover, .accdets:focus {
+.input:hover, .input:focus {
     border: 3px solid #593e3b;
     border-radius: 4px;
-    background-color: #fff9dd;
-}   
+}
+
+/***********************
+    
+    About Us Elements 
+
+************************/
+
+#aboutus {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#aboutus p {
+    font-family: Merriweather;
+    font-size: 2vh;
+    font-weight: 300;
+    text-indent: 50px;
+    text-align: justify;
+}
+
+#group h2 {
+    text-align: center;
+}
+
+#group {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#members {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.member img {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid #7d6464;
+}
+
+.member h4 {
+    font-family: Lora;
+    font-size: 2vh;
+    font-weight: 300;
+    text-align: center;
+}
+
+/***********************
+    
+    Error Elements
+
+************************/
+
+#errorcontents {  
+    border: 5px solid;
+    border-color: #593e3b;
+    border-radius: 4px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#errorcontents h1 {
+    font-family: Lora;
+    font-size: 10vh;
+    font-weight: 600;
+    color: #593e3b;
+}
+
+#errorcontents p {
+    margin-top: -20px;
+    font-family: 'Lora';
+    font-size: 4vh;
+    color: #593e3b;
+}
+
+#errorcontents a {
+    margin-top: 20px;
+    font-family: 'Lora';
+    font-size: 1.8vh;
+    color: #593e3b;
+}

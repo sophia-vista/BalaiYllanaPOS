@@ -100,7 +100,14 @@ const database = {
             if(error) return callback(false);
             return callback(result);
         }).lean();
-    }
+    },
+
+    votePoll: function(model, filter, change, callback) {
+        model.findOneAndUpdate(filter, {$inc : change}, {new: true}, function(error, result) { 
+            if(error) return callback(false);
+            return callback(result);
+        });
+    },
 }
 
 module.exports = database;
