@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> dysPHoria | Quiz: {{quiz.title}} </title>
+  <script src="/js/article-post.js" type="text/javascript"></script>
+</head>
+<body>
+  {{> header}}
+  <div id="container">
+
+    <ul class="breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li><a href="/quiz/list">Quizzes</a></li>
+      <li>{{quiz.title}}</li>
+    </ul> <br>
+
+    <div id="main-post">
+      <h1 class="subheader" id="article-title">QUIZ: {{quiz.title}}</h1>
+      <h4>chuchu</h4>
+    </div><hr><br>
+    
+    <div class="body" id="quiz-body">
+      <div id="img">
+        <img src="{{quiz.imgpath}}">
+      </div>
+      <h4>{{quiz.imgsrc}}</h4><br>
+      <p></p>
+      {{#each quiz.questions}}
+      
+        <p>{{inc @index}}). {{this}}</p><br>
+      <div class="quiz-item">  
+        <button class="btn true" type="submit" id="truebtn{{inc @index}}" name="truebtn">True</button>
+        <button class="btn false" type="submit" id="falsebtn{{inc @index}}" name="falsebtn">False</button>
+      </div><br>
+      <div class="explanation" id="ex{{inc @index}}">
+        <p>{{quiz.explanations.[{{@index}}]}}</p>
+      </div>
+      {{/each}}
+    </div><br>
+  </div><br>
+
+  {{> footer}}
+</body>
+</html>
