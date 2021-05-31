@@ -66,7 +66,13 @@
       <h2 class="subsubheader">Comments:</h2>
       <div id="comment-list">
         {{> comment}}<hr class="line-light">
-      </div>
+      </div><br>
+      {{#if notloggedin}}
+        <p>Sign up or log in to leave a comment!</p>
+      {{else}}
+        <h3 class="subsubheader">Write a new comment:</h2><br>
+        <textarea class="comment-box" placeholder="Type your comment here."></textarea>
+      {{/if}}
     </div>
   </div>
   {{> footer}}
