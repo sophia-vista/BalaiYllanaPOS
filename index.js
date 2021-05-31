@@ -25,8 +25,12 @@ app.use(session({
 app.engine('hbs', exphbs({
     defaultLayout: 'main',
     extname: '.hbs',
+    helpers: {
+        inc : function(value, options) {
+            return parseInt(value) + 1
+        }
+    }
 }));
-
 
 app.use(bodyParser.urlencoded ({extended:true}));
 app.use(bodyParser.json());
@@ -34,24 +38,11 @@ app.set('view engine', 'hbs');
 
 app.use(express.static('public'));
 
-
 app.use('/', routes);
 
-// app.use(function(err, req, res, next){
-//     res.status(err.status);
-//     res.render('error', { 
-//         error: err,
-//         code: err.status
-//      });
-// });
-
-// app.use(function (req, res) {
-//     var details = {
-//         error: "Error: Page not found.",
-//         code: "404"
-//     };
-//    res.render('error', details);
-// });
+app.use(function (req, res) {
+   res.render('error');
+});
 
 db.connect();
 
