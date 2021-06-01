@@ -18,8 +18,6 @@ app.get('/search', controller.getSearch);
 app.get('/profile', controller.getProfile);
 app.post('/editprofile', controller.postEditProfile);
 app.post('/delprofile', controller.postDelProfile);
-// app.get('/getCheckNewUsername', profileController.getCheckNewUsername);
-// app.get('/getCheckNewEmail', profileController.getCheckNewUsername);
 
 // // login + signup
 app.get('/login', loginController.getLogin);
@@ -27,8 +25,10 @@ app.post('/login', validation.loginValidation(), loginController.postLogin);
 app.get('/logout', logoutController.getLogout);
 app.get('/signup', signupController.getSignUp);
 app.post('/signup', validation.signupValidation(), signupController.postSignUp);
-// app.get('/getCheckUsername', signupController.getCheckUsername);
-// app.get('/getCheckEmail', signupController.getCheckEmail);
+
+// validation
+app.get('/getCheckUsername', controller.getCheckNewUsername);
+app.get('/getCheckEmail', controller.getCheckNewUsername);
 
 // articles
 app.get('/article/list', articleController.getArticleList);
