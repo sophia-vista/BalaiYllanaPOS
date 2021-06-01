@@ -28,6 +28,15 @@ app.engine('hbs', exphbs({
     helpers: {
         inc : function(value, options) {
             return parseInt(value) + 1
+        },
+        ifEqual : function (user1, user2, opts) {
+            try
+            {
+              if (user1.toLowerCase () == user2.toLowerCase ())
+                return opts.fn (this);
+              else
+                return opts.inverse(this);
+            } catch (error) { }
         }
     }
 }));
