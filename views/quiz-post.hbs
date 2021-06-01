@@ -2,7 +2,7 @@
 <html>
 <head>
   <title> dysPHoria | Quiz: {{quiz.title}} </title>
-  <script src="/js/article-post.js" type="text/javascript"></script>
+  <script src="/js/quiz-post.js" type="text/javascript"></script>
 </head>
 <body>
   {{> header}}
@@ -16,26 +16,32 @@
 
     <div id="main-post">
       <h1 class="subheader" id="article-title">QUIZ: {{quiz.title}}</h1>
-      <h4>chuchu</h4>
-    </div><hr><br>
+      <h4>This quiz is based on <a href="/article/{{quiz.title}}">this article</a>!</h4>
+    </div><hr>
     
     <div class="body" id="quiz-body">
+      <p>{{quiz.intro}}</p><br>
       <div id="img">
         <img src="{{quiz.imgpath}}">
-      </div>
+      </div><br>
       <h4>{{quiz.imgsrc}}</h4><br>
-      <p></p>
       {{#each quiz.questions}}
       
-        <p>{{inc @index}}). {{this}}</p><br>
-      <div class="quiz-item">  
-        <button class="btn true" type="submit" id="truebtn{{inc @index}}" name="truebtn">True</button>
-        <button class="btn false" type="submit" id="falsebtn{{inc @index}}" name="falsebtn">False</button>
-      </div><br>
-      <div class="explanation" id="ex{{inc @index}}">
-        <p>{{quiz.explanations.[{{@index}}]}}</p>
-      </div>
+      <div class="quiz-item">
+        <h2>{{inc @index}}). {{this}}</h2>
+        <div class="quiz-buttons" id="btns-{{inc @index}}">
+          <button class="btn truebtn" type="submit" id="truebtn-{{inc @index}}" name="truebtn">True</button>
+          <button class="btn falsebtn" type="submit" id="falsebtn-{{inc @index}}" name="falsebtn">False</button>
+        </div>
+        <p class="correct" id="cor-{{inc @index}}"></p>
+        <p class="explanation" id="ex-{{inc @index}}">{{lookup ../quiz.explanations @index}}</p><br>
+      </div><br><hr class="line-light"><br>
+
       {{/each}}
+      <div class="final-score">
+        <h3 id="final-score"></h3>
+        <p id="score-text"></p>
+      </div>
     </div><br>
   </div><br>
 
