@@ -60,7 +60,6 @@ const controller = {
                         if (req.body.username != '') update.username = req.body.username;
                         if (req.body.email != '') update.email = req.body.email;
                         if (req.body.new_password != '') update.password = hash;
-                        console.log(update)
                         db.updateOne(User, {username: req.session.username}, update, function(flag) {
                             db.updateMany(Comment, {author: user.username}, {author: update.username}, function(flag) {
                                 if (req.body.username != '')
@@ -71,6 +70,20 @@ const controller = {
                     });
                 }
             });
+        });
+    },
+
+    getCheckNewUsername: function (req, res) {
+        var username = req.query.username;
+        db.findOne(User, {username: username}, 'username', function (result) {
+            res.send(result);
+        });
+    },
+
+    getCheckNewEmail: function (req, res) {
+        var email = req.query.email;
+        db.findOne(User, {email: email}, 'email', function (result) {
+            res.send(result);
         });
     },
 
