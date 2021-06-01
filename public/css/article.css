@@ -1,0 +1,153 @@
+#poll-question {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#poll h3 {
+    font-family: Merriweather;
+    font-size: 3vh;
+    font-style: italic;
+    font-weight: 300;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#buttons p {
+    font-family: Lora;
+    font-size: 1.5vh;
+    font-weight: 300;
+}
+
+#buttons > button {
+    width: 10%;
+    font-size: 2.5vh;
+}
+
+#nobtn {
+    margin-left: 20px;
+}
+
+#poll-bars {
+    margin: 10px 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#poll-bars > div {
+    display: flex;
+    background-color: #E8E8E8;
+    border-radius: 15px;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#poll-bars h4 {
+    margin-top: 10px;
+    font-family: Merriweather;
+    font-size: 1.4vh;
+    font-style: italic;
+    font-weight: 300;
+    text-align: center;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+#poll-bars span {
+    padding: 10px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    /*max-width: 95%;*/
+    font-family: Lora;
+    color: white;
+    font-size: 1.5vh;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.yes {
+    background-color: #7B6363;
+    margin-bottom: 10px;
+}
+
+.no {
+    background-color: #7B6363; 
+}
+
+#comments {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+}
+
+#comment-list hr {
+    margin-left: 0;
+}
+
+#comment-list {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.comment > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-author {
+    font-family: Merriweather;
+    font-size: 1.5vh;
+    font-weight: 300;
+}
+
+.comment-text {
+    font-family: Merriweather;
+    font-size: 2vh;
+    font-weight: 500;
+    margin-left: 1%;
+}
+
+.deletebtn {
+    border: none;
+    background:  none;
+    color: #7B6363;
+    cursor: pointer;
+    padding: 10px 20px;
+    float: right;
+    margin-top: -40px;
+    position: relative;
+    z-index: 2;
+}
+
+.commentbox {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-family: Merriweather;
+    margin-bottom: 20px;
+}
+
+#comments p {
+    font-family: Lora;
+    font-size: 1.5vh;
+    font-weight: 300;
+    text-align: center;
+}
+
+#new-comment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
