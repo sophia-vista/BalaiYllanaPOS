@@ -2,6 +2,7 @@ const db = require('../models/db.js');
 const User = require('../models/UserModel.js');
 const Article = require('../models/ArticleModel.js');
 const Poll = require('../models/PollModel.js');
+const Comment = require('../models/CommentModel.js');
 
 const articleController = {
     getArticleList: function (req, res) {
@@ -15,25 +16,28 @@ const articleController = {
         var details = {}
         db.findOne(Article, doc, '', function(article){
             db.findOne(Poll, doc, '', function(poll){
-                details.article = article;
-                details.poll = poll;
-                details.username = req.session.username;
+                db.findMany(Comment, doc, '', function(comments){
+                    details.article = article;
+                    details.poll = poll;
+                    details.comments = comments;
+                    details.username = req.session.username;
 
-                // calculates percentage of votes
-                var total = poll.yesctr + poll.noctr;
-                var yespercent = poll.yesctr / total * 100;
-                var nopercent = poll.noctr / total * 100;
-                details.polltotal = total;
-                details.yespercent = yespercent.toFixed(2);
-                details.nopercent = nopercent.toFixed(2);
+                    // calculates percentage of votes
+                    var total = poll.yesctr + poll.noctr;
+                    var yespercent = poll.yesctr / total * 100;
+                    var nopercent = poll.noctr / total * 100;
+                    details.polltotal = total;
+                    details.yespercent = yespercent.toFixed(2);
+                    details.nopercent = nopercent.toFixed(2);
 
-                if (!req.session.username)
-                    details.notloggedin = 'Sign up or log in to answer the poll!';
+                    if (!req.session.username)
+                        details.notloggedin = 'Sign up or log in to answer the poll!';
 
-                db.findOne(User, {username: req.session.username}, '', function(user){
-                    if (user && user.polls.includes(req.params.title))
-                        details.answered = 'You have already answered this poll. Comment your thoughts down below!';
-                    res.render('article-post', details);
+                    db.findOne(User, {username: req.session.username}, '', function(user){
+                        if (user && user.polls.includes(req.params.title))
+                            details.answered = 'You have already answered this poll. Comment your thoughts down below!';
+                        res.render('article-post', details);
+                    });
                 });
             });
         });
@@ -75,6 +79,34 @@ const articleController = {
             if (user && user.polls.includes(req.query.title))
                 res.send(true);
             else res.send(false);
+        });
+    },
+
+    addComment: function (req, res) {
+        var comment = {
+            title: req.params.title,
+            author: req.session.username,
+            content: req.body.comment
+        }
+
+        db.insertOne(Comment, comment, function (comment) {
+            res.render('comment', {layout: false, data:comment}, function(err, html){
+                res.send(html);
+            });
+        });
+    },
+
+    deleteComment: function (req, res) {
+        var comment = {
+            title: req.params.title,
+            author: req.session.username,
+            content: req.body.comment
+        }
+
+        db.deleteOne(Comment, comment, function (comment) {
+            res.render('comment', {layout: false, data:comment}, function(err, html){
+                res.send(html);
+            });
         });
     },
 }
