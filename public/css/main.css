@@ -547,9 +547,18 @@ h3.subsubheader {
     padding-top: 2%;
 }
 
+#comment-list hr {
+    margin-left: 0;
+}
+
 #comment-list {
     padding-left: 2%;
     padding-right: 2%;
+}
+
+.comment > div {
+    display: flex;
+    flex-direction: column;
 }
 
 .comment-author {
@@ -565,7 +574,12 @@ h3.subsubheader {
     margin-left: 1%;
 }
 
-.comment-box {
+.deletebtn {
+    float: right;
+    margin-top: -30px;
+}
+
+.commentbox {
     width: 100%;
     height: 100px;
     padding: 10px;
@@ -578,6 +592,12 @@ h3.subsubheader {
     font-size: 1.5vh;
     font-weight: 300;
     text-align: center;
+}
+
+#new-comment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /***********************
