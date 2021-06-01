@@ -10,13 +10,22 @@ const quizController = {
 
     getQuizPost: function (req, res) {
         var doc = {title: req.params.title}
-        var details = {}
+        var details = {};
 
         db.findOne(Quiz, doc, '', function(quiz){
             details.quiz = quiz;
             details.username = req.session.username;
 
             res.render('quiz-post', details);
+        });
+    },
+
+    checkAnswer: function(req, res) {
+        var doc = {title: req.params.title}
+        db.findOne(Quiz, doc, '', function (quiz) {
+            if (req.query.answer == quiz.answers[req.query.index-1].toString()) 
+                res.send(true);
+            else res.send(false)
         });
     }
 }
