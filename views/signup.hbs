@@ -3,6 +3,8 @@
 <head>
   <title> dysPHoria | Sign Up </title>
   <link href="/css/auth.css" rel="stylesheet">
+  <script src="/js/signup.js" type="text/javascript"></script>
+  <script src="/js/validator.min.js" type="text/javascript"></script>
 </head>
 <body id="login-body">
   {{> header}}
@@ -25,9 +27,9 @@
       </div>
 
       <form class="form" method="post">
-        <input class="input" type="text" placeholder="Username" id="username" name="username"><br>
-        <input class="input" type="email" placeholder="Email" id="email" name="email"><br>
-        <input class="input" type="password" placeholder="Password" id="password" name="password"><br><br>
+        <input class="input" type="text" placeholder="Username" id="username" name="username" required><br>
+        <input class="input" type="email" placeholder="Email" id="email" name="email" required><br>
+        <input class="input" type="password" placeholder="Password" id="password" name="password" required><br><br>
         <input class="btn" type="submit" value="Sign Up" id="signupbutton" name="signupbutton">
       </form><br>
 
