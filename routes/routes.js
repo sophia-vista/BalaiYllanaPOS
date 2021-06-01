@@ -7,7 +7,6 @@ const logoutController = require('../controllers/logoutController.js');
 const articleController = require('../controllers/articleController.js');
 const quizController = require('../controllers/quizController.js');
 // const profileController = require('../controllers/profileController.js');
-// const errorController = require('../controllers/errorController.js');
 
 const validation = require('../helpers/validation.js');
 
@@ -32,6 +31,8 @@ app.get('/article/:title', articleController.getArticlePost);
 app.get('/article/poll/yes', articleController.incrementYesPoll);
 app.get('/article/poll/no', articleController.incrementNoPoll);
 app.get('/checkPollAnswered', articleController.checkPollAnswered);
+app.post('/article/:title/addcomment', articleController.addComment);
+app.post('/article/:title/deletecomment', articleController.deleteComment);
 
 // quizzes
 app.get('/quiz/list', quizController.getQuizList);
@@ -48,8 +49,5 @@ app.get('/quiz/:title', quizController.getQuizPost);
 // app.get('/profile/delete', profileController.getDelProfile);
 // app.post('/profile/delete', profileController.postDelProfile);
 // app.get('/getCheckNewUsername', profileController.getCheckNewUsername);
-
-// // error pages
-// app.get('/error/404', errorController.get404);
 
 module.exports = app;
