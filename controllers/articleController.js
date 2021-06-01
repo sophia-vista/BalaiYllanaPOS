@@ -74,7 +74,6 @@ const articleController = {
     },
 
     checkPollAnswered: function(req, res) {
-        var doc = {title: req.query.title}
         db.findOne(User, {username: req.session.username}, '', function (user) {
             if (user && user.polls.includes(req.query.title))
                 res.send(true);
