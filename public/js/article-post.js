@@ -28,8 +28,19 @@ $(document).ready(function () {
             title.replaceAll(' ', '%20');
             var string = '/article/' + title.replaceAll(' ', '%20') + ' #poll'
             $('#poll').load(string);
-            $('#yesbtn').prop('disabled', true);
-            $('#nobtn').prop('disabled', true);
+        });
+    });
+
+    $('#commentbtn').click(function () {
+        $.post('/article/' + title +'/addcomment', {comment : $('#commentbox').val()}, function (result) {
+            $('body').load(result);
+        });
+    });
+
+    $('.deletebtn').click(function () {
+        var comment = $(this).siblings().children('.comment-text').text();
+        $.post('/article/' + title +'/deletecomment', {comment : comment}, function (result) {
+            $('body').load(result);
         });
     });
 })
