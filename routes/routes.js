@@ -15,6 +15,7 @@ const app = express();
 // index
 app.get('/', controller.getIndex);
 app.get('/about-us', controller.getAboutUs);
+app.get('/search', controller.getSearch);
 
 // // login + signup
 app.get('/login', loginController.getLogin);

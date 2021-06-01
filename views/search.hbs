@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> dysPHoria | Search </title>
+  <link href="/css/search.css" rel="stylesheet">
+</head>
+<body>
+  {{> header}}
+  <div id="container">
+
+    <ul class="breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li>Articles</li>
+    </ul> 
+
+    <div id="main-small">
+      <h1 class="subheader">Search</h1>
+    </div><hr><br>
+    
+    <div id="search">
+      <div id="search-box-container">
+        <form action="/search" method="get">
+          <input type="search" placeholder = "Search for articles or quizzes..." name = "search" value = "{{search}}" class="search-bar" id="search-bar-large"/>
+          <button type="submit" class="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+      <div id="search-results">
+        {{#each articles}}
+          {{>article}}
+          <hr class="line-light">
+        {{/each}}
+        {{#each quizzes}}
+          {{>article}}
+          <hr class="line-light">
+        {{/each}}
+        {{#unless articles}}
+          {{#unless quizzes}}
+            <p>No results found.</p>
+          {{/unless}}
+        {{/unless}}
+      </div><br>
+    </div><br>
+
+  </div>
+  {{> footer}}
+</body>
+</html>
