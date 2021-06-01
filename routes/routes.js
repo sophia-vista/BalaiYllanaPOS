@@ -37,6 +37,7 @@ app.post('/article/:title/deletecomment', articleController.deleteComment);
 // quizzes
 app.get('/quiz/list', quizController.getQuizList);
 app.get('/quiz/:title', quizController.getQuizPost);
+app.get('/quiz/:title/checkAnswer', quizController.checkAnswer);
 
 // //search
 // app.get('/search', controller.getSearch);
