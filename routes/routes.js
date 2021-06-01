@@ -6,16 +6,20 @@ const loginController = require('../controllers/loginController.js');
 const logoutController = require('../controllers/logoutController.js');
 const articleController = require('../controllers/articleController.js');
 const quizController = require('../controllers/quizController.js');
-// const profileController = require('../controllers/profileController.js');
 
 const validation = require('../helpers/validation.js');
 
 const app = express();
 
-// index
+// index + etc
 app.get('/', controller.getIndex);
 app.get('/about-us', controller.getAboutUs);
 app.get('/search', controller.getSearch);
+app.get('/profile', controller.getProfile);
+app.post('/editprofile', controller.postEditProfile);
+app.post('/delprofile', controller.postDelProfile);
+// app.get('/getCheckNewUsername', profileController.getCheckNewUsername);
+// app.get('/getCheckNewEmail', profileController.getCheckNewUsername);
 
 // // login + signup
 app.get('/login', loginController.getLogin);
@@ -40,16 +44,5 @@ app.get('/quiz/list', quizController.getQuizList);
 app.get('/quiz/:title', quizController.getQuizPost);
 app.get('/quiz/:title/checkAnswer', quizController.checkAnswer);
 
-// //search
-// app.get('/search', controller.getSearch);
-
-// // profile
-// app.get('/profile', profileController.getYourProfile);
-// app.get('/profile/edit', profileController.getEditProfile);
-// app.post('/profile/edit', validation.editProfile(), profileController.postEditProfile);
-// app.post('/profile/edit/prof-picture', upload.single('prof-picture'), profileController.postEditProfilePic);
-// app.get('/profile/delete', profileController.getDelProfile);
-// app.post('/profile/delete', profileController.postDelProfile);
-// app.get('/getCheckNewUsername', profileController.getCheckNewUsername);
 
 module.exports = app;
