@@ -18,8 +18,6 @@ $(document).ready(function () {
             title.replaceAll(' ', '%20');
             var string = '/article/' + title.replaceAll(' ', '%20') + ' #poll'
             $('#poll').load(string);
-            $('#yesbtn').prop('disabled', true);
-            $('#nobtn').prop('disabled', true);
         });
     });
 
