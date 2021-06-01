@@ -1,0 +1,71 @@
+<html>
+<head>
+  <title> dysPHoria | Your Profile </title>
+  <link href="/css/profile.css" rel="stylesheet">
+  <link href="/css/article.css" rel="stylesheet">
+  <link href="/css/auth.css" rel="stylesheet">
+
+</head>
+<body>
+  {{> header}}
+  <div id="container">
+
+    <ul class="breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li>Your Profile</li>
+    </ul>
+
+    <div id="profilecontents"><br>
+      <h1>@{{user.username}}</h1>
+      <p>{{user.email}}</p><br><br>
+    </div>
+
+  </div><br>
+
+  <div id="container">
+
+    <div id="comments">
+      <h2 class="subsubheader">Your Comments:</h2>
+        <div id="comment-list">
+          {{#each comments}}
+            {{> comment-profile}}<hr class="line-light">
+          {{else}}
+            <p>You have not commented on any post yet.</p><br>
+          {{/each}}
+        </div><br>
+      </div>
+    </div>
+
+  </div><br>
+
+  <div id="container">
+
+    <div id="profilecontents"><br>
+      <h2>Edit Your Details</h2><br>
+      <form class="form" method="post" action="/editprofile">
+        <input class="input" type="text" placeholder="New Username" id="username" name="username"><br>
+        <input class="input" type="email" placeholder="New Email" id="email" name="email"><br>
+        <input class="input" type="password" placeholder="New Password" id="password" name="new_password"><br>
+        <input class="input" type="password" placeholder="Confirm your Password" id="password" name="edit_password"><br><br>
+        <input class="btn" type="submit" value="Edit" id="signupbutton" name="signupbutton">
+      </form><br>
+    </div>
+
+  </div><br>
+
+  <div id="container">
+
+    <div id="profilecontents"><br>
+      <h2>Delete Your Account</h2><br>
+      <form class="form" method="post" action="/delprofile">
+        <input class="input" type="password" placeholder="Password" name="delete_password"><br>
+        <input class="input" type="password" placeholder="Confirm your Password" name="c_password"><br><br>
+        <input class="btn" type="submit" value="Delete" id="signupbutton" name="signupbutton">
+      </form><br>
+    </div>
+
+  </div><br>
+  
+  {{> footer}}
+</body>
+</html>
