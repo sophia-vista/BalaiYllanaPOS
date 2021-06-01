@@ -1,4 +1,9 @@
 <div class="comment"><br>
-  <h1 class="comment-author">@{{author}}yurii</h1>
-  <h6 class="comment-text">{{comment}}Very enlightening! As a Filipino, I agree with your sentiments.</h6>
+  <div>
+    <h1 class="comment-author">@{{author}}</h1>
+    <h6 class="comment-text">{{content}}</h6>
+  </div>
+  {{#ifEqual author username}}
+  <button class="btn deletebtn" type="submit" id="deletebtn{{@index}}" name="deletebtn">Delete</button>
+  {{/ifEqual}}
 </div><br>
