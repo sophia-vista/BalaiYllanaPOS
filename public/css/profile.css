@@ -22,6 +22,12 @@
     color: #593e3b;
 }
 
+#profilecontents h3 {
+    font-family: 'Lora';
+    font-size: 2vh;
+    color: #593e3b;
+}
+
 #profilecontents p {
     font-family: 'Lora';
     font-size: 4vh;
