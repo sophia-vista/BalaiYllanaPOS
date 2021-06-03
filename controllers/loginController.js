@@ -31,7 +31,7 @@ const loginController = {
                     bcrypt.compare(password, result.password, function(err, equal) {
                         if(equal) {
                             req.session.username = result.username;
-                            res.redirect('/');
+                            res.redirect('/profile');
                         }
 
                         else {
