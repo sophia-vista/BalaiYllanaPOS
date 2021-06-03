@@ -79,7 +79,7 @@ const controller = {
                             if (req.body.email != '') update.email = req.body.email;
                             if (req.body.new_password != '') update.password = hash;
                             db.updateOne(User, {username: req.session.username}, update, function(flag) {
-                                db.updateMany(Comment, {author: user.username}, {author: update.username}, function(flag) {
+                                db.updateMany(Comment, {author: req.session.username}, {author: update.username}, function(flag) {
                                     if (req.body.username != '')
                                         req.session.username = update.username;
                                     res.redirect('/profile');
