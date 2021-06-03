@@ -13,9 +13,9 @@ $(document).ready(function () {
     }
 
     function checkIfValidUsername(username, errorfield) {
-        if (!validator.isAlphanumeric(username.replaceAll("-", '').replaceAll("_", '').replaceAll(".", '')))
+        if (!validator.isAlphanumeric(username.replaceAll("-", '').replaceAll("_", '').replaceAll(".", '')) && !validator.isEmpty(username))
             setInvalid($('#username'), 'Invalid username. Use Alphanumeric characters (A-Z, 0-9), dash (-), period (.), and underscore (_) only.', errorfield);
-        else if (!validator.isLength(username, {min: 4, max: 20})) 
+        else if (!validator.isLength(username, {min: 4, max: 20}) && !validator.isEmpty(username)) 
             setInvalid($('#username'), 'Invalid username. Minimum of 4 characters and maximum of 20 characters.', errorfield);
         else $.get('/getCheckUsername', {username: username}, function (result) {
             if(result.username == username) 
@@ -25,7 +25,7 @@ $(document).ready(function () {
     }
 
     function checkIfValidEmail(email, errorfield) {
-        if (!validator.isEmail(email)) 
+        if (!validator.isEmail(email) && !validator.isEmpty(email)) 
             setInvalid($('#email'), 'Invalid email. Please use a valid format.', errorfield);
         else {
             validator.normalizeEmail(email);
@@ -39,9 +39,9 @@ $(document).ready(function () {
     }
 
     function checkIfValidPassword(password, errorfield) {
-        if (!validator.isAscii(password))
+        if (!validator.isAscii(password) && !validator.isEmpty(password))
             setInvalid($('#new_password'), 'Invalid password. Use ASCII characters only.', errorfield);
-        else if (!validator.isLength(password, {min: 4, max: 20}))
+        else if (!validator.isLength(password, {min: 4, max: 20}) && !validator.isEmpty(password))
             setInvalid($('#new_password'), 'Invalid password. Minimum of 4 characters and maximum of 20 characters.', errorfield);
         else 
             setValid($('#new_password'), errorfield);
