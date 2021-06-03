@@ -6,6 +6,7 @@ const Article = require('../models/ArticleModel.js');
 const Quiz = require('../models/QuizModel.js');
 const Comment = require('../models/CommentModel.js');
 const User = require('../models/UserModel.js');
+const { validationResult } = require('express-validator');
 
 const controller = {
     getIndex: function (req, res) {
@@ -52,25 +53,43 @@ const controller = {
     },
 
     postEditProfile : function (req, res) {
-        db.findOne (User, {username : req.session.username}, '', function (user) {
-            bcrypt.compare(req.body.edit_password, user.password, function(err, equal) {
-                if(equal) {
-                    bcrypt.hash(req.body.new_password, saltRounds, function(err, hash) {
-                        var update = user;
-                        if (req.body.username != '') update.username = req.body.username;
-                        if (req.body.email != '') update.email = req.body.email;
-                        if (req.body.new_password != '') update.password = hash;
-                        db.updateOne(User, {username: req.session.username}, update, function(flag) {
-                            db.updateMany(Comment, {author: user.username}, {author: update.username}, function(flag) {
-                                if (req.body.username != '')
-                                    req.session.username = update.username;
-                                res.redirect('/profile');
+        var errors = validationResult(req);
+
+        if (!errors.isEmpty()) 
+        {
+            errors = errors.errors;
+            var details = {};
+            
+            for(i = 0; i < errors.length; i++)
+                details[errors[i].param + 'Error'] = errors[i].msg;
+            db.findOne (User, {username : req.session.username}, '', function (user) {
+                details.user = user;
+                res.render('profile', details);
+            });
+            
+        }
+        else
+        {
+            db.findOne (User, {username : req.session.username}, '', function (user) {
+                bcrypt.compare(req.body.edit_password, user.password, function(err, equal) {
+                    if(equal) {
+                        bcrypt.hash(req.body.new_password, saltRounds, function(err, hash) {
+                            var update = user;
+                            if (req.body.username != '') update.username = req.body.username;
+                            if (req.body.email != '') update.email = req.body.email;
+                            if (req.body.new_password != '') update.password = hash;
+                            db.updateOne(User, {username: req.session.username}, update, function(flag) {
+                                db.updateMany(Comment, {author: user.username}, {author: update.username}, function(flag) {
+                                    if (req.body.username != '')
+                                        req.session.username = update.username;
+                                    res.redirect('/profile');
+                                });
                             });
                         });
-                    });
-                }
+                    }
+                });
             });
-        });
+        }            
     },
 
     getCheckNewUsername: function (req, res) {
@@ -88,33 +107,52 @@ const controller = {
     },
 
     postDelProfile : function (req, res) {
-        db.findOne(User, {username: req.session.username}, '', function (user) {
-            if (req.body.c_password == req.body.delete_password) {
-                bcrypt.compare(req.body.c_password, user.password, function(err, equal) {
-                    if(equal) {
-                        db.deleteMany (Comment, {author: user.username}, function (result) {
-                            db.deleteOne(User, {username: user.username}, function(flag) {
-                                if(flag) {
-                                    req.session.destroy(function(err) {
-                                        if(err) throw err;
-                                        res.redirect('/');
-                                    });
-                                }
-                            });
-                        }) 
-                    }
-                    else {
-                        var temp = {user : user, delete_passwordError : 'Incorrect password. Please try again.'};
-                        res.render('profile', temp);
-                    }
-                });
-            }
-            else {
-                var temp = {user : user, delete_passwordError : 'Incorrect password. Please try again.'};
-                res.render('profile', temp);
-            }
-        });
-    },
+        var errors = validationResult(req);
+
+        if (!errors.isEmpty()) 
+        {
+            errors = errors.errors;
+            var details = {};
+            
+            for(i = 0; i < errors.length; i++)
+                details[errors[i].param + 'Error'] = errors[i].msg;
+            db.findOne (User, {username : req.session.username}, '', function (user) {
+                details.user = user;
+                res.render('profile', details);
+            });
+            
+        }
+        
+        else
+        {
+            db.findOne(User, {username: req.session.username}, '', function (user) {
+                if (req.body.c_password == req.body.delete_password) {
+                    bcrypt.compare(req.body.c_password, user.password, function(err, equal) {
+                        if(equal) {
+                            db.deleteMany (Comment, {author: user.username}, function (result) {
+                                db.deleteOne(User, {username: user.username}, function(flag) {
+                                    if(flag) {
+                                        req.session.destroy(function(err) {
+                                            if(err) throw err;
+                                            res.redirect('/');
+                                        });
+                                    }
+                                });
+                            }) 
+                        }
+                        else {
+                            var temp = {user : user, delete_passwordError : 'Incorrect password. Please try again.'};
+                            res.render('profile', temp);
+                        }
+                    });
+                }
+                else {
+                    var temp = {user : user, delete_passwordError : 'Incorrect password. Please try again.'};
+                    res.render('profile', temp);
+                }
+            });
+        }        
+    }
 }
 
 module.exports = controller;

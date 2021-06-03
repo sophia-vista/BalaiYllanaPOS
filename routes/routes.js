@@ -17,7 +17,7 @@ app.get('/about-us', controller.getAboutUs);
 app.get('/search', controller.getSearch);
 app.get('/profile', controller.getProfile);
 app.post('/editprofile', validation.editProfileValidation(), controller.postEditProfile);
-app.post('/delprofile', controller.postDelProfile);
+app.post('/delprofile', validation.deleteAccountValidation(), controller.postDelProfile);
 
 // // login + signup
 app.get('/login', loginController.getLogin);
