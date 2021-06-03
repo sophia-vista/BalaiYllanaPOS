@@ -87,19 +87,30 @@ const controller = {
                             });
                         });
                     }
+                    else {
+                        var details = {edit_passwordError : 'Incorrect password. Please try again.'}
+                        db.findOne (User, {username : req.session.username}, '', function (user) {
+                             db.findMany (Comment, {author : req.session.username}, '', function (comments) { 
+                                details.user = user;
+                                details.username = user.username;
+                                details.comments = comments;
+                                res.render ('profile', details);
+                            });
+                        });
+                    }
                 });
             });
         }            
     },
 
-    getCheckNewUsername: function (req, res) {
+    getCheckUsername: function (req, res) {
         var username = req.query.username;
         db.findOne(User, {username: username}, 'username', function (result) {
             res.send(result);
         });
     },
 
-    getCheckNewEmail: function (req, res) {
+    getCheckEmail: function (req, res) {
         var email = req.query.email;
         db.findOne(User, {email: email}, 'email', function (result) {
             res.send(result);
@@ -141,14 +152,29 @@ const controller = {
                             }) 
                         }
                         else {
-                            var temp = {user : user, delete_passwordError : 'Incorrect password. Please try again.'};
-                            res.render('profile', temp);
+                        var details = {delete_passwordError : 'Incorrect password. Please try again.'}
+                        db.findOne (User, {username : req.session.username}, '', function (user) {
+                             db.findMany (Comment, {author : req.session.username}, '', function (comments) { 
+                                details.user = user;
+                                details.username = user.username;
+                                details.comments = comments;
+                                res.render ('profile', details);
+                            });
+                        });
+                   
                         }
                     });
                 }
                 else {
-                    var temp = {user : user, delete_passwordError : 'Incorrect password. Please try again.'};
-                    res.render('profile', temp);
+                    var details = {delete_passwordError : 'Incorrect password. Please try again.'}
+                    db.findOne (User, {username : req.session.username}, '', function (user) {
+                         db.findMany (Comment, {author : req.session.username}, '', function (comments) { 
+                            details.user = user;
+                            details.username = user.username;
+                            details.comments = comments;
+                            res.render ('profile', details);
+                        });
+                    }); 
                 }
             });
         }        
