@@ -24,7 +24,7 @@ const controller = {
     },
 
     getAboutUs: function (req, res) {
-        res.render('about-us');
+        res.render('about-us', {username : req.session.username});
     }, 
 
     getSearch : function (req, res) {
