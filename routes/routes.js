@@ -27,8 +27,8 @@ app.get('/signup', signupController.getSignUp);
 app.post('/signup', validation.signupValidation(), signupController.postSignUp);
 
 // validation
-app.get('/getCheckUsername', controller.getCheckNewUsername);
-app.get('/getCheckEmail', controller.getCheckNewUsername);
+app.get('/getCheckUsername', controller.getCheckUsername);
+app.get('/getCheckEmail', controller.getCheckEmail);
 
 // articles
 app.get('/article/list', articleController.getArticleList);
