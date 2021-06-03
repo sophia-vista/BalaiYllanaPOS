@@ -16,7 +16,7 @@ app.get('/', controller.getIndex);
 app.get('/about-us', controller.getAboutUs);
 app.get('/search', controller.getSearch);
 app.get('/profile', controller.getProfile);
-app.post('/editprofile', controller.postEditProfile);
+app.post('/editprofile', validation.editProfileValidation(), controller.postEditProfile);
 app.post('/delprofile', controller.postDelProfile);
 
 // // login + signup
