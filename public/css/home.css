@@ -1,3 +1,7 @@
+#container-screen {
+    min-height: 80vh;
+}
+
 .home-btn {
   width:5% !important; 
   padding:5%  !important;

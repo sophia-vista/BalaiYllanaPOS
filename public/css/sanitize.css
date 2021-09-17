@@ -9,44 +9,15 @@
 html, body {
     font-family: "Secondary";
     color: #0d1f2d;
-    min-height: 100%;
+    min-height: 100vh;
     background-color: #E7EBEF;
 }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+a, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: "Raleway";
 }
 
 button, .btn {
     font-family: "Raleway";
     font-style: normal;
-}
-
-.container {
-    background-color: #f8f9fa !important;
-}
-
-.text-primary {
-    color: #2E6D9E!important;
-}
-
-.btn-primary {
-    border-color: #0d1f2d;
-    background-color: #0d1f2d;
-    color: #f8f9fa;
-}
-
-.btn-primary:hover, .btn-primary:focus {
-    border-color: #0d1f2d;
-    background-color: #0d1f2d;
-    color: #f5c86d;
-    transition: 0.3s;
-}
-
-#container-screen {
-    min-height: 100vh;
-}
-
-#screen-info {
-    border-left-width: 3px !important;
 }
