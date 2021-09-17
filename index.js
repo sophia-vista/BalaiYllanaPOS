@@ -1,60 +1,38 @@
-const express = require('express');
-const exphbs = require('express-handlebars');
-const session = require('express-session');
-const mongoose = require('mongoose');
-const MongoStore = require('connect-mongo');
-const bodyParser = require('body-parser');
-const validator = require('validator');
-const dotenv = require (`dotenv`);
-const routes = require('./routes/routes.js');
-const db = require('./models/db.js');
+//configure environment variables
+process.env.HOSTNAME = "localhost"
+process.env.PORT = "3000"
+process.env.DB_URL = "mongodb+srv://pia:balaiyllanagarden@balai-yllana.n8hr8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
-const app = express();
-dotenv.config();
-port = process.env.PORT;
-hostname = process.env.HOSTNAME;
+//import the necessary modules
+const path = require('path');
+const electron = require('electron');
+const server = require('./server.js');
 
-app.use(session({
-    secret: 'gerphis',
-    resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: 
-        'mongodb+srv://admin1:admin@cluster0.barb2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' })
-}));
+//retrieves the necessary attributes from electron
+const {app, BrowserWindow} = electron;
 
-app.engine('hbs', exphbs({
-    defaultLayout: 'main',
-    extname: '.hbs',
-    helpers: {
-        inc : function(value, options) {
-            return parseInt(value) + 1
-        },
-        ifEqual : function (user1, user2, opts) {
-            try
-            {
-              if (user1.toLowerCase () == user2.toLowerCase ())
-                return opts.fn (this);
-              else
-                return opts.inverse(this);
-            } catch (error) { }
-        }
-    }
-}));
+let mainWindow;
+//create new window once electron finishes initialization
+app.on('ready', function() {
 
-app.use(bodyParser.urlencoded ({extended:true}));
-app.use(bodyParser.json());
-app.set('view engine', 'hbs');
+    //get screen size
+    const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
 
-app.use(express.static('public'));
+    //create new window
+    mainWindow = new BrowserWindow({
+        width: width,
+        height: height,
+        title: "Balai Yllana Garden Restaurant",
+        // icon: "",
+        autoHideMenuBar: true
+    });
 
-app.use('/', routes);
+    //opens the web application
+    mainWindow.loadURL(`http://${process.env.HOSTNAME}:${process.env.PORT}/`);
 
-app.use(function (req, res) {
-   res.render('error');
-});
+    //terminate the electron application on window close
+    mainWindow.on('closed', function() {
+        app.quit();
+    });
 
-db.connect();
-
-app.listen(port, () => {
-    console.log('The web server has started on port ' + port);
 });
