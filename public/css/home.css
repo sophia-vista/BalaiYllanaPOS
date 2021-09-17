@@ -1,0 +1,15 @@
+.home-btn {
+  width:5% !important; 
+  padding:5%  !important;
+}
+
+.home-btn:hover {
+    background-color: #EDEDED;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.home-btn-label {
+  font-weight: 600;
+  font-size: 4vh;
+}

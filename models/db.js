@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
-const Article = require('../models/ArticleModel.js');
-const Poll = require('../models/PollModel.js');
 
-const url = 'mongodb+srv://admin1:admin@cluster0.barb2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const url = 'mongodb+srv://pia:balaiyllanagarden@balai-yllana.n8hr8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 const options = {
     useUnifiedTopology: true,
