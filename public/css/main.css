@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
+/* ICONS */
+.material-icons-two-tone { vertical-align: middle; }
 .material-icons-two-tone.md-18 { font-size: 18px; }
 .material-icons-two-tone.md-24 { font-size: 24px; }
 .material-icons-two-tone.md-36 { font-size: 36px; }
@@ -8,18 +10,59 @@
 .material-icons-two-tone.md-96 { font-size: 96px; }
 .material-icons-two-tone.md-144 { font-size: 144px; }
 
-.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
-.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+.material-icons-two-tone.md-btn { cursor: pointer; }
 
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
-.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+.material-icons-two-tone.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons-two-tone.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+.material-icons-two-tone.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons-two-tone.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
 
+.rounded-sm { border-radius: 25px; }
 .rounded-lg { border-radius: 75px; }
 
-.navbar { background-color: #2E2E2E !important; }
+.no-content {
+	font-weight: 600;
+	color: #505050;
+}
 
+.rounded-list-item {
+	background-color: #EAEAEA;
+	transition: 0.3s;
+    cursor: pointer;
+}
+
+.rounded-list-item:hover {
+	background-color: #DADADA;
+}
+
+.rounded-list-item > h1 {
+	font-weight: 700;
+	font-size: 24px;
+}
+
+/* NAV BAR */
+.navbar { background-color: #2E2E2E !important; }
 .nav-link {
 	color: #FFFFFF !important;
+	font-size: 20px;
 	text-transform: uppercase;
 }
 
+/* SIDE BAR */
+#sidenav-list {
+	background-color: white;
+}
+
+.sidenav-title {
+	font-weight: 700;
+	font-size: 36px;
+}
+
+.sidenav-link {
+	font-weight: 600;
+	font-size: 24px;
+}
+
+.sidenav-active > h2 {
+	font-weight: 800 !important;
+}
