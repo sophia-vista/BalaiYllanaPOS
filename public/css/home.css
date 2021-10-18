@@ -1,10 +1,17 @@
-#container-screen {
-    min-height: 80vh;
+#main {
+    background: linear-gradient(rgba(218,218,218,0.8), rgba(255,255,255,0.8)), url("/images/bg-1.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#logo-name {
+    font-weight: 700;
 }
 
 .home-btn {
-    width:5% !important; 
-    padding:5%  !important;
+    background-color: rgba(255,255,255,0.9);
+    width: 5% !important;
+    padding: 5% !important;
 }
 
 .home-btn:hover {

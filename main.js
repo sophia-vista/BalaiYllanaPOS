@@ -18,7 +18,7 @@ app.on('ready', function() {
     //create new window
     mainWindow = new BrowserWindow({
         title: "Balai Yllana Garden Restaurant",
-        // icon: "",
+        icon: "/images/pos.ico",
         show: false,
         webPreferences: {
             devTools: true
