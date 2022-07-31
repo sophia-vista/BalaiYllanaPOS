@@ -1,6 +1,6 @@
 const controller = {
     getIndex: function (req, res) {
-        res.render('home');
+        res.render('event-pencilbookings');
     }
 }
 
